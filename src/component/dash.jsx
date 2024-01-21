@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 import { ConnectKitButton } from 'connectkit';
+import { useNavigate } from 'react-router-dom';
 
 const UserDashboard = () => {
   const [stocks, setStocks] = useState([
@@ -9,6 +10,10 @@ const UserDashboard = () => {
     { id: 2, name: 'Stock B', quantity: 5 },
     // Add more stocks as needed
   ]);
+  const nav=useNavigate()
+  const navigators =() =>{
+    nav('/create')
+  }
 
   return (
     <div className="container mx-auto mt-8">
@@ -30,6 +35,9 @@ const UserDashboard = () => {
         <div className="mb-6">
           <h2 className="text-2xl font-semibold mb-2">User Details</h2>
           <p className="text-gray-300">Account Adress : 0x45736453gh4875y38475</p>
+          <button onClick={()=>{navigators()}} className="text-gray-200 hover:text-white transition duration-300">
+              Create Company
+            </button>
         </div>
 
         {/* Stocks Section */}

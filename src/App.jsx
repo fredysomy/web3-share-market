@@ -1,10 +1,15 @@
 import './App.css';
 import { ConnectKitButton } from 'connectkit';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
-
+  const navigate = useNavigate();
   const { address, isConnected ,connector} = useAccount()
+  const routefun = () => {
+    navigate('/dashboard')
+  }
   return (
     <div className='h-screen'>
       {/* Hero Section */}
@@ -18,7 +23,7 @@ function App() {
         <p className='mx-2'></p>
         {
           isConnected ?
-          <><button className='bg-white text-blue-500 py-2 px-4 rounded-full hover:bg-blue-400 transition duration-300'>DashBoard</button></>
+          <><button onClick={()=>{routefun()}} className='bg-white text-blue-500 py-2 px-4 rounded-full hover:bg-blue-400 transition duration-300'>DashBoard</button></>
           :
           <></>
         }
