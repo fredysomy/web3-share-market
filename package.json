@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aave/contract-helpers": "^1.21.1",
+    "@aave/math-utils": "^1.21.1",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "connectkit": "^1.6.0",
